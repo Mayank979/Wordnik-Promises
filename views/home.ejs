@@ -1,0 +1,31 @@
+<% include partials/header%>
+
+
+<h1><%= word%></h1>
+<img src="<%=url1%>"/>
+<h1><%= noun%></h1>
+<img src="<%=url2%>" alt="">
+<br><br>
+
+<input type="number" id="num1">
+<input type="number" id="num2">
+<span></span>
+
+<!-- <script>
+  $("#num2").on("input", function() {
+    $("#num1").val(this.value);
+    $("span").text(this.value);
+    console.log(this.value);
+  });
+</script> -->
+
+<script>
+
+  $("#num1, #num2").on("focusout", function() {
+    var c = +$("#num1").val() + +$("#num2").val();
+    console.log(c);
+    $("span").text(c);
+  });
+</script>
+
+<% include partials/footer %>
