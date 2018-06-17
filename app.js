@@ -30,16 +30,16 @@ app.get("/", async (req, res) => {
   const wordnik_json     = await wordnik_response.json();
   let word = wordnik_json.word;
   try{
-    const sentencer_gif_response    = await fetch(giphyAPI_url + noun);
-    const sentecner_json   = await sentencer_gif_response.json();
-    const giphy_response   = await fetch(giphyAPI_url + wordnik_json.word);
-    const giphy_json       = await giphy_response.json();
-    let url1 = giphy_json.data[0].images.fixed_width.url;
-    let url2 = sentecner_json.data[0].images.fixed_width.url
-    res.render("home", {word: word, noun: noun, url1:url1, url2: url2});
+          const sentencer_gif_response    = await fetch(giphyAPI_url + noun);
+          const sentecner_json   = await sentencer_gif_response.json();
+          const giphy_response   = await fetch(giphyAPI_url + wordnik_json.word);
+          const giphy_json       = await giphy_response.json();
+          let url1 = giphy_json.data[0].images.fixed_width.url;
+          let url2 = sentecner_json.data[0].images.fixed_width.url
+          res.render("home", {word: word, noun: noun, url1:url1, url2: url2});
   } catch(err){
-    console.log(err);
-    res.render("home", {word: word, error: false})
+          console.log(err);
+          res.render("home", {word: word, error: false})
   }
 });
 
